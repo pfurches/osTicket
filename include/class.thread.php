@@ -509,7 +509,7 @@ implements Searchable {
             $vars['thread-type'] = 'N';
             $vars['staffId'] = $mailinfo['staffId'];
             if ($vars['staffId'])
-                $vars['poster'] = Staff::lookup($mailinfo['staffId']);
+                $vars['poster'] = Staff::lookup((int) $mailinfo['staffId']);
             break;
 
         // The user type was not identified by the mail parsing system. It
@@ -2790,7 +2790,7 @@ class ResponseThreadEntry extends ThreadEntry {
 
         if (!$vars['poster']
                 && $vars['staffId']
-                && ($staff = Staff::lookup($vars['staffId'])))
+                && ($staff = Staff::lookup((int) $vars['staffId'])))
             $vars['poster'] = (string) $staff->getName();
 
         return parent::add($vars);
