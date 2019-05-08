@@ -832,7 +832,7 @@ implements AuthenticatedUser, EmailContact, TemplateVariable, Searchable {
     static function lookup($var) {
         if (is_array($var))
             return parent::lookup($var);
-        elseif (is_numeric($var))
+        elseif (is_int($var))
             return parent::lookup(array('staff_id'=>$var));
         elseif (Validator::is_email($var))
             return parent::lookup(array('email'=>$var));
