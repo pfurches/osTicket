@@ -302,7 +302,7 @@ implements RestrictedAccess, Threadable, Searchable {
     function checkStaffPerm($staff, $perm=null) {
 
         // Must be a valid staff
-        if ((!$staff instanceof Staff) && !($staff=Staff::lookup($staff)))
+        if ((!$staff instanceof Staff) && !($staff=Staff::lookup((int) $staff)))
             return false;
 
         // check department access first
@@ -1258,7 +1258,7 @@ implements RestrictedAccess, Threadable, Searchable {
         if (!is_numeric($staffId))
             return false;
 
-        $this->staff = Staff::lookup($staffId);
+        $this->staff = Staff::lookup((int) $staffId);
         return $this->save();
     }
 
