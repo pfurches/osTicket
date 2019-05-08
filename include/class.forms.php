@@ -3137,7 +3137,7 @@ class AssigneeField extends ChoiceField {
 
         switch ($type) {
         case 's':
-            return Staff::lookup($id);
+            return Staff::lookup((int) $id);
         case 't':
             return Team::lookup($id);
         case 'd':
