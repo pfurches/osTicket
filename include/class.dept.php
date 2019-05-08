@@ -876,7 +876,7 @@ implements TemplateVariable, Searchable {
           unset($dropped[$staff_id]);
           if (!$role_id || !Role::lookup($role_id))
               $errors['members'][$staff_id] = __('Select a valid role');
-          if (!$staff_id || !($staff=Staff::lookup($staff_id)))
+          if (!$staff_id || !($staff=Staff::lookup((int) $staff_id)))
               $errors['members'][$staff_id] = __('No such agent');
 
           if ($staff->dept_id == $this->id) {
